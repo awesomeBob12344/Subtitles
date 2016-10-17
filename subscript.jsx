@@ -3,16 +3,17 @@
 
 var obj = loadJson('subtitles.json');
 
-var titleGroup = app.activeDocument.layerSets.getByName('title');
+if (app.activeDocument.name == "Subtitles.psd"){
+	var titleGroup = app.activeDocument.layerSets.getByName('title');
 
-var subtitle = titleGroup.layers[0];
-
-subtitle.textItem.contents = obj[1];
+	var subtitle = titleGroup.layers[0];
 
 
-for(i = 0; i < obj.length; i++){
-	subtitle.textItem.contents = obj[i];
-	saveTiff('title'+String(i));
+	for(i = 0; i < obj.length; i++){
+			subtitle.textItem.contents = obj[i];
+			saveTiff('title'+String(i));
+	}
+
 }
 
 
